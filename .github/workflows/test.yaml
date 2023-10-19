@@ -11,7 +11,9 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
-    environment: development
+    environment:
+      name: development
+      url: https://github.com/${{ github.repository }}/releases/tag/v${{ inputs.version }}
     steps:
       - name: Test
         shell: bash
