@@ -9,11 +9,11 @@ on:
 
 jobs:
   test:
-    name: Test
+    name: Deploying Version ${{ inputs.version }} to Development
     runs-on: ubuntu-latest
     environment:
       name: development
-      # url: https://github.com/${{ github.repository }}/releases/tag/v${{ inputs.version }}
+      url: https://github.com/${{ github.repository }}/releases/tag/v${{ inputs.version }}
     steps:
       - name: Test
         shell: bash
