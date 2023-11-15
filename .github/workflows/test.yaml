@@ -24,7 +24,7 @@ jobs:
     name: production-review
     runs-on: ubuntu-latest
     environment:
-      name: development
+      name: dne # development
       url: https://github.com/${{ github.repository }}/releases/tag/v${{ inputs.version }}
     steps:
       - name: Deploying
