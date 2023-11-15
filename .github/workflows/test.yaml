@@ -32,7 +32,7 @@ jobs:
           - key: foo
           - key: bar
     steps:
-      - name: Test
+      - name: Deploying [${{ matrix.key }}] - SHA [${{ github.sha }}]
         shell: bash
         run: |
           echo "hello ${{ matrix.key }}"
