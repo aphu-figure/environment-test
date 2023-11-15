@@ -20,12 +20,16 @@ jobs:
   #       run: |
   #         echo "hello world"
 
-  test-matrix:
-    name: matrix
+  production-review:
+    name: production-review
     runs-on: ubuntu-latest
     environment:
       name: development
       url: https://github.com/${{ github.repository }}/releases/tag/v${{ inputs.version }}
+
+  test-matrix:
+    name: matrix
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         include:
