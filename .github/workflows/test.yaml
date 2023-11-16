@@ -38,9 +38,11 @@ jobs:
       matrix:
         include:
           - key: foo
+            value: 1
           - key: bar
+            value: 2
     steps:
       - name: Deploying [${{ matrix.key }}] - SHA [${{ github.sha }}]
         shell: bash
         run: |
-          echo "hello ${{ matrix.key }}"
+          echo "hello ${{ matrix.key }} ${{ matrix.value }}"
