@@ -42,7 +42,7 @@ jobs:
     needs: production-review
     steps:
       - name: Deploying
-        run: echo ${{ fromJSON( needs.production-review.outputs.digests ) }}
+        run: echo ${{ fromJSON(needs.production-review.outputs.digests.service-email) }}
 
   test-matrix:
     name: matrix
