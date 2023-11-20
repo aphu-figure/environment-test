@@ -26,14 +26,23 @@ jobs:
     environment:
       name: dne # development
       url: https://github.com/${{ github.repository }}/releases/tag/v${{ inputs.version }}
+    outputs:
+      digests: ${{ steps.digest-output.outputs.digests }}
     steps:
       - name: Deploying
         run: echo "Deploying ${{ inputs.version }}"
 
       - name: test
+        id: digest-output
         run: |
-          echo ${{ fromJSON("{\"service-email\":\"sha256:somestring\"}") }}
-          echo ${{ fromJSON("{\"service-email\":\"sha256:somestring\"}").service-email }}
+          echo "digests={\"service-email\":\"sha256:somestring\"}" >> $GITHUB_OUTPUT
+
+  test:
+    runs-on: ubuntu-latest
+    needs: production-review
+    steps:
+      - name: Deploying
+        run: echo ${{ fromJSON( needs.production-review.outputs.digests ) }}
 
   test-matrix:
     name: matrix
