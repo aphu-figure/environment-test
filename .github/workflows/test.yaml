@@ -30,6 +30,11 @@ jobs:
       - name: Deploying
         run: echo "Deploying ${{ inputs.version }}"
 
+      - name: test
+        run: |
+          echo ${{ fromJSON("{\"service-email\":\"sha256:somestring\"}") }}
+          echo ${{ fromJSON("{\"service-email\":\"sha256:somestring\"}").service-email }}
+
   test-matrix:
     name: matrix
     runs-on: ubuntu-latest
