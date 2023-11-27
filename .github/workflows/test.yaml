@@ -44,8 +44,8 @@ jobs:
       - name: Deploying
         shell: bash
         run: |
-          echo "test=123" >> "GITHUB_ENV"
-      
+          echo "test=123" >> "$GITHUB_ENV"
+
       - name: test
         run: echo ${{ env.test }}
 
