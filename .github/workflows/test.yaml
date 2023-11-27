@@ -47,7 +47,7 @@ jobs:
           echo "test=123" >> "GITHUB_ENV"
       
       - name: test
-        run: echo "$test"
+        run: echo ${{ env.test }}
 
 
   test-matrix:
