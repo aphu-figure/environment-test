@@ -42,7 +42,13 @@ jobs:
     needs: production-review
     steps:
       - name: Deploying
-        run: echo ${{ fromJSON(needs.production-review.outputs.digests).service-email }}
+        shell: bash
+        run: |
+          echo "test=123" >> "GITHUB_ENV"
+      
+      - name: test
+        run: echo "$test"
+
 
   test-matrix:
     name: matrix
