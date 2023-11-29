@@ -17,4 +17,4 @@ jobs:
           # allows autolabeler to run without unmerged PRs from being added to draft
           disable-releaser: ${{ github.ref_name != github.event.repository.default_branch }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT }}
